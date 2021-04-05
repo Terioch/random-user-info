@@ -48,9 +48,7 @@ export default function App() {
   const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
-    fetchData(pageNumber).then((results) => {
-      setUserInfo(results);
-    });
+    fetchData(pageNumber).then((results) => setUserInfo(results));
   }, [pageNumber]);
 
   const getUserName = (item: UserInfo) => {
@@ -80,17 +78,15 @@ export default function App() {
           defaultActivePage={1}
           totalPages={10}
         />
-        <Card raised centered>
-          {userInfo.map((item: UserInfo, idx: number) => (
-            <React.Fragment key={idx}>
-              <Image src={item.picture.thumbnail} />
-              <Card.Content>
-                <Card.Header>{getUserName(item)}</Card.Header>
-                <Card.Description>{getUserDescription(item)}</Card.Description>
-              </Card.Content>
-            </React.Fragment>
-          ))}
-        </Card>
+        {userInfo.map((item: UserInfo, idx: number) => (
+          <Card key={idx} raised centered>
+            <Image src={item.picture.thumbnail} />
+            <Card.Content>
+              <Card.Header>{getUserName(item)}</Card.Header>
+              <Card.Description>{getUserDescription(item)}</Card.Description>
+            </Card.Content>
+          </Card>
+        ))}
       </Container>
     </div>
   );
