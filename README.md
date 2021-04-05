@@ -1,6 +1,6 @@
 # Random User Information
 
-Created with CodeSandbox. Built in React and Semantic-ui.
+Created with CodeSandbox. Built in React and styled with Semantic-ui.
 
 ## General Information
 
